@@ -114,7 +114,7 @@ function include( src, callback ) {
 
 				s = document.createElement( 'script' );
 				s.type = 'text/javascript';
-				s.src = src[ j ] + ".js";
+				s.src = ( src[ j ].indexOf( ".js" ) != -1 ) ? src[ j ] : ( src[ j ] + ".js" );
 				if ( callback ) {
 
 					s.onload = s.onreadystatechange = function() {
@@ -147,7 +147,7 @@ function include( src, callback ) {
 			r = false;
 			s = document.createElement( 'script' );
 			s.type = 'text/javascript';
-			s.src = src + ".js";
+			s.src = ( src.indexOf( ".js" ) != -1 ) ? src : ( src + ".js" );
 			if ( callback ) {
 
 				s.onload = s.onreadystatechange = function() {
@@ -172,5 +172,5 @@ function include( src, callback ) {
 		}
 
 	}
-	
+
 }

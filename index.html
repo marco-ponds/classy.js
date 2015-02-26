@@ -1,12 +1,29 @@
 <!doctype html>
 <html>
 	<head>
-	<script src="js/classy.js"></script>
-	<script src="js/test.js"></script>
-	<script>
-		
-	</script>
-
+		<script src="js/classy.js"></script>
+		<style>
+			body {
+				font-family: sans-serif;
+				color: #999999;
+			}
+		</style>
 	</head>
+	<script>
 
+		function main() {
+
+			var engineer = new Engineer( "Marco", "Stagni", "099657" );
+			var text = document.getElementById( "text" );
+			text.innerText = engineer.print();
+
+		}
+		include( "js/test.js", main );
+
+	</script>
+	<body>
+
+		<h2 id="text"></h2>
+
+	</body>
 </html>

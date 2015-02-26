@@ -1,42 +1,68 @@
-Class("Persona", {
+/**********
+PERSON CLASS
+************/
+Class( "Person", {
+
 	//constructor
-	Persona : function(nome, cognome) {
-		console.log("inside persona con");
-		this.nome = nome;
-		this.cognome = cognome;
+	Person : function( name, surname ) {
+
+		console.log( "inside persona constructor" );
+		this.name = name;
+		this.surname = surname;
+
 	},
+
 	//methods
-	stampa : function() {
-		console.table(console);
+	print : function() {
+
+		console.log( "Hi, my name is " + this.name );
+		return "Hi, my name is " + this.name;
+
 	}
+
 });
 
+/**********
+STUDENT CLASS
+************/
+Class( "Student", {
 
-Class("Studente", {
 	//constructor
-	Studente : function(nome, cognome, matricola) {
-		console.log("inside studente con");
-		Persona.call(this, nome, cognome);
-		this.matricola = matricola;
+	Student : function( name, surname, number ) {
+
+		console.log( "Inside Student constructor." );
+		Person.call( this, name, surname );
+		this.number = number;
+
 	},
+
 	//methods
-	stampaMatricola : function() {
-		console.log("mi chiamo " + this.nome + " " + this.cognome + " n. matricola : " + this.matricola);
+	printStudent : function() {
+
+		console.log( "My name is " + this.name + " " + this.surname + " and my number is : " + this.number );
+
 	}
 
-})._extends("Persona");
+})._extends( "Person" );
 
-Class("Inge", {
+/***********
+ENGINEER CLASS
+************/
+Class( "Engineer", {
+
 	//cosntructor
-	Inge : function() {
-		console.log("inside inge con");
-		Studente.call(this, "Marco", "stagni", "099657");
-		this.isInge = true;
+	Engineer : function( name, surname, number ) {
+
+		console.log( "Inside Engineer constructor." );
+		Student.call( this, name, surname, number );
+		this.isEngineer = true;
+
 	},
 
-	toggleInge : function() {
-		this.isInge = !this.isInge;
+	toggleEngineer : function() {
+
+		this.isEngineer = !this.isEngineer;
+
 	}
 
-})._extends("Studente");
-
+})._extends("Student");
