@@ -64,7 +64,7 @@ You can see the file "index.html" to see how to work with the include method. In
 
 ```javascript
 
-var toInclude = ["js/FirstClass.js", "js/SecondClass" ];
+var toInclude = [ "js/FirstClass.js", "js/SecondClass" ];
 //var toInclude  = "js/OtherClass.js";
 
 include( toInclude, function() {
