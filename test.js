@@ -63,6 +63,12 @@ Class( "Engineer", {
 
 		this.isEngineer = !this.isEngineer;
 
+	},
+
+	print: function() {
+
+		return "I'm an awesome engineer.";
+
 	}
 
 })._extends("Student");
