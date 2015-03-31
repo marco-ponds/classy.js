@@ -14,6 +14,7 @@ function Class( name, methods ) {
 
 	//adding a few useful methods
 	window[ upper ].prototype[ '__print__' ] = function() { console.table( this ); }
+	window[ upper ].prototype[ '_super' ] = function() {};
 	return __pool__[upper];
 
 }
@@ -23,11 +24,13 @@ __class__ = function( name, methods ) {
 
 	this.name = name;
 	this.methods = methods;
-
 }
 
 __class__.prototype.has = {}.hasOwnProperty;
 __class__.prototype._extends = function( toextend ) {
+
+	//storing super
+	var sup_name = ( typeof( toextend ) == "string" ) ? toextend : toextend.name;
 
 	var c = window[ this.name ];
 	var sup = ( typeof( toextend ) == "string" ) ? window[ toextend ] : toextend;
@@ -36,20 +39,13 @@ __class__.prototype._extends = function( toextend ) {
 	window[ this.name ].prototype.constructor = window[ this.name ];
 	//setting methods
 	this._setMethods();
-	//apparently useless code below.
-	window[ this.name ].prototype.__getSuper = function() {
+	//setting super methods
+	window[ this.name ].prototype.__supername = sup_name;
+	for ( var method in __supers__[ sup_name ] ) {
 
-		//console.log(c);
-		//console.log(sup);
-		return sup;
+		window[ this.name ].prototype[ "_" + method ] = sup.prototype[ method ];
 
 	}
-	/*
-	window[this.name].prototype._super = function() {
-		this.__getSuper().apply(this, arguments);
-	};*/
-	window[ this.name ].prototype._super = ( typeof(toextend) == "string" ) ? window[ toextend ].call : toextend.call;
-
 }
 
 __class__.prototype._setMethods = function() {
