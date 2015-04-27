@@ -1,0 +1,26 @@
+{
+  "name": "Classy",
+  "main": "classy.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/marco-ponds/classy.js",
+  "authors": [
+    "Marco Stagni <mrc.stagni@gmail.com>"
+  ],
+  "description": "Simple Javascript inheritance implementation",
+  "moduleType": [
+    "es6"
+  ],
+  "keywords": [
+    "class",
+    "javascript",
+    "marcoponds"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

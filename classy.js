@@ -26,6 +26,7 @@ __class__ = function( name, methods ) {
 	this.name = name;
 	this.methods = methods;
 	__supers__[ name ] = methods;
+
 }
 
 __class__.prototype.has = {}.hasOwnProperty;
