@@ -20,6 +20,7 @@ Class( "Building", {
 
         this.type = type;
         this.floors = 1;
+        this.collapsed = false;
 
     },
 
@@ -28,6 +29,10 @@ Class( "Building", {
 
         this.floors += number;
 
+    },
+    
+    demolish: function() {
+        this.collapsed = true;
     }
 
 });
@@ -53,6 +58,12 @@ Class( "Home", {
 
         this.familyName = name;
 
+    },
+    
+    demolish: function() {
+        //calling super "demolish" method
+        this._demolish();
+        alert("Adieu!");
     }
 
 })._extends( "Building" );
